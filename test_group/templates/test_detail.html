@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ test_group.test_name }} Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Test Details</h2>
+    <p><strong>Test ID:</strong> {{ test.test_id }}</p>
+    <p><strong>Test Name:</strong> {{ test.test_name }}</p>
+    <p><strong>Course:</strong> {{ test.course }}</p>
+    <p><strong>Test Group:</strong> {{ test.test_group }}</p>
+    <a href="{% url 'test_group:test_list' %}" class="btn btn-primary">Back to Test List</a>
+</div>
+{% endblock %} 

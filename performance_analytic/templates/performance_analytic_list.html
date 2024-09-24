@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Performance Analytic List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Performance Analytic List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Course</th>
+                <th>Total Score</th>
+                <th>Progress</th>
+                <th>Last Accessed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for performance_analytic in performance_analytics %}
+            <tr>
+                <td>{{ performance_analytic.user.username }}</td>
+                <td>{{ performance_analytic.course.course_name }}</td>
+                <td>{{ performance_analytic.total_score }}</td>
+                <td>{{ performance_analytic.progress }}%</td>
+                <td>{{ performance_analytic.last_accessed }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</div>
+{% endblock %}

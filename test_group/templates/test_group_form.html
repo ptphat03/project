@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load form_filters %}
+
+{% block title %}{{ form.instance.pk|yesno:"Edit Test Group,Add New Test Group" }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ form.instance.pk|yesno:"Edit Test Group,Add New Test Group" }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.test_group_name.label_tag }}
+            {{ form.test_group_name|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            {{ form.weight.label_tag }}
+            {{ form.weight|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'test_group:test_group_list' %}" class="btn btn-secondary">Back to Test Group List</a>
+    </form>
+</div>
+{% endblock %}

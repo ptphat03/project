@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Course List{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Course List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Created by</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.course_id }}</td>
+                <td>{{ course.course_name }}</td>
+                <td>{{ course.course_description }}</td>
+                <td>{{ course.created_by }}</td>
+                <td>{{ course.created_at }}</td>
+                <td>{{ course.updated_at }}</td>
+                <td>
+                    <a href="{% url 'course:course_detail' course.course_id %}" class="btn btn-info btn-sm">Details</a>
+                    <a href="{% url 'course:course_edit' course.course_id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'course:course_delete' course.course_id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'course:course_add' %}" class="btn btn-primary">Add New Module</a>
+</div>
+{% endblock %}

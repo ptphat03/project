@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Welcome to the Home Page</h1>
+    <!-- Home page content -->
+    <p>
+        {% if request.user.role == 'student' %}
+            Hello Student!
+        {% elif request.user.role == 'teacher' %}
+            Hello Teacher!
+        {% else %}
+            Hello Guest!
+        {% endif %}
+    </p>
+</div>
+{% endblock %}

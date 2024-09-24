@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ module.module_name }} Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Module Details</h2>
+    <p><strong>Module_name:</strong> <a href="{% url module.module_url %}"> {{ module.module_name }}</a></p>
+    <p><strong>Icon:</strong> <i class="{{ module.icon }}"></i></p>
+    <p><strong>Module_group:</strong> {{ module.module_group }}</p>
+    <a href="{% url 'module_group:module_list' %}" class="btn btn-primary">Back to Module List</a>
+</div>
+{% endblock %}
